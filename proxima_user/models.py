@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
+from proxima_exped.models import Expedition
 
 class CustomAccountManager(BaseUserManager):
 
@@ -33,7 +34,6 @@ class CustomAccountManager(BaseUserManager):
 
 
 class NewUser(AbstractBaseUser, PermissionsMixin):
-
     email = models.EmailField(_('email address'), unique=True)
     user_name = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=150, blank=True)
@@ -49,3 +49,11 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.user_name
+
+
+class Reviews(models.Model):
+    comment = models.TextField()
+    user = models.ForeignKey(NewUser, on_delete=models.CASCADE)
+    expedition = models.ForeignKey(Expedition, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    
