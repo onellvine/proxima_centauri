@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home | Proxima Tours
+{% endblock %}
+{% block body %}
+    <h1 style="text-align: center; margin: 40px;" >Latest Expeditions</h1>
+    <div class="row products">
+        <div class="row">
+            {% for exped in expeditions %}
+                <a href="/expedition/{{ exped.pk }}">
+                <div class="col-md-4 col-sm-8">
+                    <div class="thumbnail">
+                        <img src="/media/{{ exped.cover_photo }}" alt="" class="img-responsive img-portfolio img-hover">
+                        <div class="caption">
+                            <h4 class="pull-right">{{ exped.person_price }}/-</h4>
+                            <h4><a href="#">{{ exped.title }}</a></h4>
+                            <p>{{ exped.description }}</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span>{{ exped.date }}</span>
+                            </p>
+                        </div>
+                    </div>
+			    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+    <div class="row reviews">
+        <h1  style="text-align: center; margin: 40px;" >Popular Reviews By Campers</h1>
+
+        <div class="col-md-4 review">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        <div class="user-photo"><img src="/static/images/user3.jpg" alt="" class="love-card-image"></div>
+                        <div class="username"><strong>@thecodeboss</strong></div>
+                        <div class="clear"></div>
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p>It was so great! Loved the characters, brilliant story. I didn’t want to put it down!</p>
+				</div>
+            </div>
+        </div>
+        <div class="col-md-4 review">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        <div class="user-photo"><img src="/static/images/user1.jpg" alt="" class="love-card-image"></div>
+                        <div class="username"><strong>@warrior_hiker</strong></div>
+                        <div class="clear"></div>
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p> Works relentlessly to improve skills and knowledge, and the quality of work output.</p>
+				</div>
+            </div>
+        </div>
+        <div class="col-md-4 review">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        <div class="user-photo"><img src="/static/images/user2.jpg" alt="" class="love-card-image"></div>
+                        <div  class="username"><strong>@ellee</strong></div>
+                        <div class="clear"></div>
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p>Enjoyed working without supervision and usually continues to carry out duties effectively.</p>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

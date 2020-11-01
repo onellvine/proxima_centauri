@@ -1,0 +1,146 @@
+/*============ registration form ================*/
+.testbox{
+    text-align: center;
+    margin: 0 auto;
+}
+.registration-form > .item > label {
+    text-align: left;
+    display: inline-block;
+    min-width: 160px;
+}
+
+input[type='text'], input[type='email'], input[type='password']{
+    width: 300px;
+    margin: 5px 5px;
+    border: 1px solid #90caf9;
+}
+
+input[type='submit']{
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: #c7ddef;
+    background: #1976d2;
+    border-radius: 2px;
+}
+
+.user-photo, .username{
+    float: left;
+}
+.clear{
+    clear: both;
+}
+.username{
+    margin: 25px 10px;
+}
+
+.love-card-image {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 60px;
+    margin-bottom: 11px;
+    border-radius: 60px;
+}
+
+.exped-description{
+    line-height: 1.8em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12pt;
+}
+
+.popular-header{
+    width: 100% !important;
+    padding: 10px !important;
+    margin: 0px 0px !important;
+    background: #122b40;
+}
+.popular{
+    color: #c7ddef;
+    text-transform: uppercase;
+    margin: 1px 5px;
+    text-align: center;
+}
+.popular-exped{
+    width: 100% !important;
+    padding: 10px !important;
+    margin: 0px 0px !important;
+}
+.popular-title{
+    color: #080808;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+.popular-date{
+    font-style: oblique;
+    color: #ac2925;
+}
+.reviews{
+    color: #c7ddef;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,121,41,1) 34%, rgba(0,212,255,1) 100%);
+}
+.review{
+    color: #5b80b2;
+}
+
+footer{
+    padding: 40px 0px;
+    margin: 0px 1px !important;
+    color: #c7ddef;
+    background: #122b40;
+}
+
+.stk-modal-bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+.stk-modal{
+    background-color: rgba(7, 133, 84, 0.5);
+    transition: 1s ease-in-out;
+}
+.stk-modal p{
+    font-size: 0.9em;
+    padding: 5px;
+    color: seashell;
+    text-align: center;
+}
+
+@media screen and (max-width: 479px){
+    .love-cards {
+        padding: 20px;
+        text-align: center;
+    }
+    .username{
+        margin: unset;
+        float: unset;
+        text-align: center !important;
+    }
+    .user-photo{
+        float: unset;
+        display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;  /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+        display: flex;
+        justify-content: center;
+    }
+    .banner > h1{
+        font-size: 1.7em;
+    }
+    .testbox{
+        text-align: unset;
+        padding: 10px;
+    }
+    input[type='text'], input[type='email'], input[type='password']{
+        width: 90%;
+        border: 1px solid #90caf9;
+    }
+}

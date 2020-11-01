@@ -1,0 +1,46 @@
+{% extends '../base.html' %}
+{% block title %} {{ expedition.title }} {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-lg-8">
+            <form action="{% url 'lipa_na_mpesa' %}" method="post">
+                {% csrf_token %}
+                <h2>{{ expedition.title }} - <span><small>{{ expedition.date }}</small></span></h2>
+                <img src="/media/{{ expedition.cover_photo }}" height="100%" width="100%">
+                <p class="exped-description">{{ expedition.description }} </p>
+                <h4>Inclusives</h4>
+                <ul>
+                    {% for inclusive in inclusives %}
+                        <li>{{inclusive}}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Price (Per Person): <span><small>KES.</small> <input type="hidden" name="exped_price" value="{{ expedition.person_price }}">{{ expedition.person_price }}</span></h4>
+                <button class="btn btn-primary" type="submit" id="reserve">Reserve this Expedition</button>
+                {% if user.is_authenticated %}
+                    <script>
+                        var button = document.getElementById("reserve");
+                        button.setAttribute("onclick", "modalSuccess()");
+                        function modalSuccess(){
+                            modal = document.querySelector('.stk-modal-bg');
+                            modal.style.visibility = 'visible';
+                            modal.style.opacity = 1;
+                        }
+                    </script>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="col-lg-4 col-md-6" style="border: 1px solid #d3d3d3; padding: 20px; margin-top: 60px;">
+            <div class="row popular-header"><h2 class="popular">Popular Hikes</h2></div>
+            <hr>
+            {% for exped in popular %}
+                <div class="row popular-exped">
+                    <h5 class="popular-title">{{exped.title}}</h5>
+                    <small class="popular-description">{{exped.description}}</small><br />
+                    <small class="popular-date">{{ exped.date }}</small>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

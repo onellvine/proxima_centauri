@@ -1,0 +1,47 @@
+{% extends '../base.html' %}
+
+{% block title %}
+Resgiter | Proxima Tours
+{% endblock %}
+
+{% block body %}
+
+<body>
+  <div class="testbox">
+    <form method="post" action="" class="registration-form">
+      {% csrf_token %}
+      <div class="banner">
+        <h1>Register | Proxima Tours</h1>
+      </div>
+      <p>User Information</p>
+      <div class="item">
+        <label for="name">Username<span>*</span></label>
+        {{ form.user_name }}
+      </div>      
+      <div class="item">
+        <label for="email">Email Address<span>*</span></label>
+        {{ form.email }}
+      </div>      
+      <div class="item">
+        <label for="phone">M-Pesa Phone<span>*</span></label>
+        {{ form.phone }}
+        <!-- <input type="text" name="phone" id="phone"> -->
+      </div>
+      <div class="item">
+        <label for="password1">Password<span>*</span></label>
+        {{ form.password1 }}
+      </div>
+      <div class="item">
+        <label for="password2">Confirm Password<span>*</span></label>
+        {{ form.password2 }}
+      </div>
+
+      <div class="btn-block">
+        <button class="btn btn-primary" type="submit" name="Create User">Register</button>
+      </div>
+      <p style="text-align: center; margin: 5px 3px;">Already have an account? <a href="{% url 'userlogin' %}">Login</a></p>
+    </form>
+
+  </div>
+
+  {% endblock %}

@@ -1,0 +1,34 @@
+{% extends '../base.html' %}
+
+{% block title %}
+Login | Proxima Tours
+{% endblock %}
+
+{% block body %}
+
+<div class="testbox">
+    <h3>Login</h3>
+    <form name="sentMessage" id="contactForm" method="post" action="">
+        {% csrf_token %}
+        {% if error %}
+        <small style="color: #cc3300; margin: 5px 0px;"><i>Invalid username and password combinations</i></small>
+        {% endif %}
+        <div class="control-group form-group">
+            <div class="controls">
+                <label for="id_username">Username</label>
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="control-group form-group">
+            <div class="controls">
+                <label for="id_password">Password</label>
+                {{ form.password }}
+            </div>
+        </div>
+        <!-- For success/fail messages -->
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p style="margin: 5px 0px">Don't have an account? <a href="{% url 'usersignup' %}">Sign Up</a></p>
+    </form>
+</div>
+
+{% endblock %}
