@@ -5,6 +5,8 @@ from .models import NewUser
 from django.contrib.auth.admin import UserAdmin
 from django.forms import TextInput
 
+from . models import Reviews
+
 
 class UserAdminConfig(UserAdmin):
     model = NewUser
@@ -29,3 +31,8 @@ class UserAdminConfig(UserAdmin):
 
 
 admin.site.register(NewUser, UserAdminConfig)
+
+@admin.register(Reviews)
+class AdminReviews(admin.ModelAdmin):
+    list_display = ('user', 'expedition', 'comment', 'date')
+

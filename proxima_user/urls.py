@@ -7,4 +7,5 @@ urlpatterns = [
     path('userlogin/', views.userlogin, name='userlogin'),
     path('userlogout/', views.userlogout, name='userlogout'),
     path('expedition/', include('proxima_exped.urls')),
+    path('review', views.addreview, name='addreview'),
 ]

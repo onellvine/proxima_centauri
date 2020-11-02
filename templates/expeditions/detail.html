@@ -28,6 +28,16 @@
                     </script>
                 {% endif %}
             </form>
+            <div class="col">
+                <h3>Leave a Review About this Tour</h3>
+                <form action="{% url 'addreview' %}" class="review" method="POST">
+                    {% csrf_token %}
+                    <label for="review">Comment</label> <br> <br>
+                    <textarea name="review" id="review" cols="90" rows="5"></textarea>
+                    <input type="hidden" name="expedition-id" value="{{ expedition.id }}"> <br> <br>
+                    <button class="btn btn-primary" type="submit">Leave a Review</button>
+                </form>
+            </div>
         </div>
 
         <div class="col-lg-4 col-md-6" style="border: 1px solid #d3d3d3; padding: 20px; margin-top: 60px;">

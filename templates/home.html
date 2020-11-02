@@ -31,48 +31,23 @@
     <hr>
     <div class="row reviews">
         <h1  style="text-align: center; margin: 40px;" >Popular Reviews By Campers</h1>
-
+        {% for review in reviews %}
         <div class="col-md-4 review">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>
                         <div class="user-photo"><img src="/static/images/user3.jpg" alt="" class="love-card-image"></div>
-                        <div class="username"><strong>@thecodeboss</strong></div>
+                        <div class="username">
+                            <strong>{{ review.user }}</strong> - <a href="/expedition/{{ review.expedition.pk }}"><small>@{{ review.expedition }}</small></a>
+                        </div>
                         <div class="clear"></div>
                     </h4>
                 </div>
                 <div class="panel-body">
-                    <p>It was so great! Loved the characters, brilliant story. I didn’t want to put it down!</p>
+                    <p>{{ review.comment }}</p>
 				</div>
             </div>
         </div>
-        <div class="col-md-4 review">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>
-                        <div class="user-photo"><img src="/static/images/user1.jpg" alt="" class="love-card-image"></div>
-                        <div class="username"><strong>@warrior_hiker</strong></div>
-                        <div class="clear"></div>
-                    </h4>
-                </div>
-                <div class="panel-body">
-                    <p> Works relentlessly to improve skills and knowledge, and the quality of work output.</p>
-				</div>
-            </div>
-        </div>
-        <div class="col-md-4 review">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>
-                        <div class="user-photo"><img src="/static/images/user2.jpg" alt="" class="love-card-image"></div>
-                        <div  class="username"><strong>@ellee</strong></div>
-                        <div class="clear"></div>
-                    </h4>
-                </div>
-                <div class="panel-body">
-                    <p>Enjoyed working without supervision and usually continues to carry out duties effectively.</p>
-				</div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
